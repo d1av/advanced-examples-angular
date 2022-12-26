@@ -1,1 +1,41 @@
-<p>form works!</p>
+<div class="formContainer">
+  <form [formGroup]="cadastroForm" (ngSubmit)="adicionarUsuario()">
+    <div class="mb-3">
+      <label for="nome" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nome"
+        aria-describedby="nome"
+        formControlName="nome"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="cpf" class="form-label">CPF</label>
+      <input type="text" class="form-control" id="cpf" aria-describedby="cpf" />
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        aria-describedby="email"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="senha" class="form-label">senha</label>
+      <input type="senha" class="form-control" id="senha" />
+    </div>
+
+    <div class="mb-3">
+      <label for="confirmaSenha" class="form-label">Confirm senha</label>
+      <input type="senha" class="form-control" id="confirmaSenha" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
