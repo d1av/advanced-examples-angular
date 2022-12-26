@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { Usuario } from 'src/app/shared/types/usuario.types';
 
 @Component({
@@ -11,6 +11,7 @@ export class FormComponent implements OnInit {
 
   cadastroForm!: FormGroup;
   usuario!: Usuario;
+  formResult: string = '';
 
   constructor(
     private fb: FormBuilder
@@ -18,10 +19,9 @@ export class FormComponent implements OnInit {
 
   }
 
-
   ngOnInit(): void {
     this.cadastroForm = this.fb.group({
-      nome: [''],
+      nome: ['', Validators.required],
       cpf: [''],
       email: [''],
       senha: [''],
@@ -30,8 +30,13 @@ export class FormComponent implements OnInit {
   }
 
   adicionarUsuario() {
-    this.usuario = Object.assign({},this.usuario,this.cadastroForm.value)
-    console.log(this.usuario)
+    if (this.cadastroForm.dirty) {
+      this.usuario = Object.assign({}, this.usuario, this.cadastroForm.value)
+      this.formResult = JSON.stringify(this.usuario)
+      console.log(this.usuario)
+    } else {
+      this.formResult = "Não submeteu"
+    }
   }
 
 

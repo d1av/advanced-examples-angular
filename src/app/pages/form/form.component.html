@@ -9,12 +9,24 @@
         aria-describedby="nome"
         formControlName="nome"
       />
+      <span
+        class="text-danger"
+        *ngIf="
+          cadastroForm.get('nome')?.errors && cadastroForm.get('nome')?.touched
+        "
+        >Nome inválido</span
+      >
     </div>
 
     <div class="mb-3">
       <label for="cpf" class="form-label">CPF</label>
-      <input type="text"
-      class="form-control" id="cpf" aria-describedby="cpf" formControlName="cpf" />
+      <input
+        type="text"
+        class="form-control"
+        id="cpf"
+        aria-describedby="cpf"
+        formControlName="cpf"
+      />
     </div>
 
     <div class="mb-3">
@@ -30,14 +42,33 @@
 
     <div class="mb-3">
       <label for="senha" class="form-label">senha</label>
-      <input type="senha" class="form-control" id="senha" formControlName="senha"/>
+      <input
+        type="senha"
+        class="form-control"
+        id="senha"
+        formControlName="senha"
+      />
     </div>
 
     <div class="mb-3">
       <label for="senhaConfirmacao" class="form-label">Senha Confirmacao</label>
-      <input type="senha" class="form-control" id="senhaConfirmacao" formControlName="senhaConfirmacao"/>
+      <input
+        type="senha"
+        class="form-control"
+        id="senhaConfirmacao"
+        formControlName="senhaConfirmacao"
+      />
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-group">
+      <div class="rol-md-4 col-md-offset-2">
+        <p>Formulário válido: {{ cadastroForm.valid }}</p>
+        <p>Formulário tocado: {{ cadastroForm.touched }}</p>
+        <p>Formulário sujo: {{ cadastroForm.dirty }}</p>
+        <p>Formulário valor: {{ formResult }}</p>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!cadastroForm.valid">Submit</button>
   </form>
 </div>
