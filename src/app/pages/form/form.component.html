@@ -13,7 +13,8 @@
 
     <div class="mb-3">
       <label for="cpf" class="form-label">CPF</label>
-      <input type="text" class="form-control" id="cpf" aria-describedby="cpf" />
+      <input type="text"
+      class="form-control" id="cpf" aria-describedby="cpf" formControlName="cpf" />
     </div>
 
     <div class="mb-3">
@@ -23,17 +24,18 @@
         class="form-control"
         id="email"
         aria-describedby="email"
+        formControlName="email"
       />
     </div>
 
     <div class="mb-3">
       <label for="senha" class="form-label">senha</label>
-      <input type="senha" class="form-control" id="senha" />
+      <input type="senha" class="form-control" id="senha" formControlName="senha"/>
     </div>
 
     <div class="mb-3">
-      <label for="confirmaSenha" class="form-label">Confirm senha</label>
-      <input type="senha" class="form-control" id="confirmaSenha" />
+      <label for="senhaConfirmacao" class="form-label">Senha Confirmacao</label>
+      <input type="senha" class="form-control" id="senhaConfirmacao" formControlName="senhaConfirmacao"/>
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
