@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  mudarStatus(event: any) {
+    console.log(event)
+  }
+
 }

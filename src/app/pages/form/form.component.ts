@@ -12,7 +12,6 @@ import { DisplayMessage, GenericValidator, ValidationMessages } from './generic-
 })
 export class FormComponent implements OnInit, AfterViewInit {
 
-  @ViewChildren(FormControlName, { read: ElementRef }) formInputElements: ElementRef[];
 
   cadastroForm!: FormGroup;
   usuario!: Usuario;
@@ -53,13 +52,8 @@ export class FormComponent implements OnInit, AfterViewInit {
     this.genericValidator = new GenericValidator(this.validationMessages);
   }
   ngAfterViewInit(): void {
-    let controlBlurs: Observable<any>[]= this.formInputElements
-    .map((formControl:ElementRef)=> fromEvent(formControl.nativeElement, 'blur'));
-
-    mergeWith(...controlBlurs).subscribe(()=>{
-      this.displayMessage = this.genericValidator.processarMensagens(this.cadastroForm);
-    })
   }
+
 
 
   ngOnInit(): void {
